@@ -7,7 +7,13 @@ int main(){
     for (size_t i {}; i<3; i++){
         std::cout << "input your-" << i+1 << " score: ";
         std::cin >> score;
-        avgScore += score;
+        if (score < 0 || score > 100) {
+            std::cout << "your score cannot less or more than 0 and 100" << std::endl;
+            i--;
+            continue;
+        } else{
+            avgScore += score;
+        }
     }
 
     avgScore /= 3;
