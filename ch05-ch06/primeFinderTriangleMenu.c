@@ -2,7 +2,7 @@
 #include <stdbool.h>
 
 int main(){
-    int inputMenu=0, a=0, b=0, divider, cPrime=0, n=0;
+    int inputMenu=0, a=0, b=0, divider, cPrime=0, n=0, rows=0;
     bool isPrime; 
 
     do{
@@ -43,8 +43,27 @@ int main(){
 
             printf("\nTotal prime in range: %d \n\n", cPrime);
             break;
+
+        case 2:
+            printf("input the amount rows: ");
+            scanf("%d", &rows);
+
+            for(size_t i=1; i<=rows; i++){
+                for(size_t j=1; j<=i; j++){
+                    printf((j%2==1) ? "* " : "# ");
+                }
+                printf("\n");
+            }
+            printf("\n");
+            break;
+
+        case 3:
+            inputMenu = 3;
+            printf("\n === PROGRAM DONE WELL ===");
+            break;
         
         default:
+            printf("\nInvalid Input, Please Try Again!\n\n");
             break;
         }
 
