@@ -28,13 +28,14 @@ int main(){
             for (n=a; n<=b; n++){
                 isPrime = true;
                 divider=2;
+                cPrime=0;
 
                 do{
                     if(isPrime){
-                        isPrime = (n%divider == 0) ? false : true;
+                        isPrime = (n%divider == 0 && divider!=n) ? false : true;
                         divider += (isPrime) ? 1 : 0;
                     }
-                    if (divider == n-1){
+                    if (isPrime){
                         printf("%d ", n);
                         cPrime++;
                     }
