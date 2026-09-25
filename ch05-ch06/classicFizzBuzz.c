@@ -5,7 +5,7 @@ int main(){
 
     do{
         printf("input n value (1-100): ");
-        scanf("%d", &n);
+        scanf("%zu", &n);
 
         if(n<1 || n>100){
             printf("input n value by the range that between 1-100 !\n");
