@@ -25,17 +25,18 @@ int main(){
 
             printf("\nPrime found: ");
 
+            cPrime=0;
+
             for (n=a; n<=b; n++){
                 isPrime = true;
                 divider=2;
-                cPrime=0;
 
                 do{
                     if(isPrime){
-                        isPrime = (n%divider == 0 && divider!=n) ? false : true;
+                        isPrime = (n%divider == 0 && divider<n) ? false : true;
                         divider += (isPrime) ? 1 : 0;
                     }
-                    if (isPrime){
+                    if (divider==(n-1) || divider >= n){
                         printf("%d ", n);
                         cPrime++;
                     }
