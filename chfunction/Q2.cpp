@@ -17,17 +17,6 @@ int main(){
     long long arr[1000], x {};
     std::string Qs;
 
-    // lambda function
-    // lambda add
-    applyAll(arr, N, [=](long long a) -> long long {return a+x;});
-
-    // lambda mul
-    auto mult = [=](long long a) -> long long {return a*x;};
-    applyAll(arr, N, mult);
-
-    // lambda sq
-    applyAll(arr, N, [](long long a) -> long long {return a*a;});
-
     // first line input
     std::cin >> N >> Q;
     
@@ -41,12 +30,19 @@ int main(){
         std::cin >> Qs;
         if (Qs != "sq"){
             std::cin >> x;
+            if (Qs == "add"){
+                // lambda add
+                applyAll(arr, N, [=](long long a) -> long long {return a+x;});
+            } else {
+                // lambda mul
+                auto mult = [=](long long a) -> long long {return a*x;};
+                applyAll(arr, N, mult);
+            }
+        } else {
+            // lambda sq
+            applyAll(arr, N, [](long long a) -> long long {return a*a;});
         }
-        applyAll(arr, N, );
     }
-
-
-
     return 0;
 }
 
