@@ -6,7 +6,9 @@ long long norm(long long v);
 
 template <typename F>
 void applyAll(long long* a, int n, F f){
-
+    for (size_t i{}; i<n;i++){
+        std::cout << f(a[i]);
+    }
 }
 
 int main(){
@@ -17,19 +19,14 @@ int main(){
 
     // lambda function
     // lambda add
-    auto add = [=](long long a, long long x) -> long long{
-        return a+x;
-    };
+    applyAll(arr, N, [=](long long a) -> long long {return a+x;});
 
     // lambda mul
-    auto mul = [=](long long a, long long x) -> long long{
-        return a*x;
-    };
+    auto mult = [=](long long a) -> long long {return a*x;};
+    applyAll(arr, N, mult);
 
     // lambda sq
-    auto sq = [](long long a){
-        return a*a;
-    };
+    applyAll(arr, N, [](long long a) -> long long {return a*a;});
 
     // first line input
     std::cin >> N >> Q;
@@ -45,7 +42,7 @@ int main(){
         if (Qs != "sq"){
             std::cin >> x;
         }
-        applyAll(arr, Q, )
+        applyAll(arr, N, );
     }
 
 
